@@ -1,2 +1,2 @@
-# study-django-guardian
-Study django-guardian with Django2.0
+# study-django-channels
+Study django-channels with Django2.0
