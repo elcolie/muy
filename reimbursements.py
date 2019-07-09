@@ -4,7 +4,7 @@ def non_hotel():
     :return:
     """
     # 17 June 2019
-    taxi_go_thb = 120
+    taxi_go_thb = 350
     toll_way_thb = 120
     sim_card_rupiah, sim_card_thb = 350000, 786.80
 
@@ -41,10 +41,10 @@ def non_hotel():
 
 
 def main():
-    hotel = 68055.68
+    hotel = 69283.53 # THB
     expense = non_hotel()
     print(f"{expense} THB")  # 3636.24
-    print(f"total: {hotel + expense}")  # 71691.92
+    print(f"total: {hotel + expense}")  # 73149.77
 
 
 if __name__ == '__main__':
