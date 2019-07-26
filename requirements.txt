@@ -6,21 +6,26 @@
 #
 aniso8601==6.0.0          # via graphene
 django-environ==0.4.5
-django-extensions==2.1.9
-django-filter==2.1.0
+django-extensions==2.2.1
+django-filter==2.2.0
 django-filters==0.2.1
 django-guardian==2.0.0
+django-money==0.15
 django==2.2.3
-djangorestframework==3.9.4
-graphene-django==2.3.2
-graphene==2.1.6           # via graphene-django
-graphql-core==2.2         # via graphene, graphene-django, graphql-relay
-graphql-relay==0.4.5      # via graphene
+djangorestframework==3.10.1
+graphene-django==2.4.0
+graphene==2.1.7           # via graphene-django
+graphql-core==2.2.1       # via graphene, graphene-django, graphql-relay
+graphql-relay==2.0.0      # via graphene
 model-mommy==1.6.0
 promise==2.2.1            # via graphene-django, graphql-core, graphql-relay
 psycopg2==2.8.3
+py-moneyed==0.8.0         # via django-money
 pytz==2019.1              # via django
 rx==1.6.1                 # via graphql-core
 singledispatch==3.4.0.3   # via graphene-django
 six==1.12.0               # via django-extensions, graphene, graphene-django, graphql-core, graphql-relay, model-mommy, promise, singledispatch
 sqlparse==0.3.0           # via django
+
+# The following packages are considered to be unsafe in a requirements file:
+# setuptools==41.0.1        # via django-money
