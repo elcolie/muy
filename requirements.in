@@ -9,3 +9,4 @@ django-extensions
 model_mommy
 django-filter
 django-money
+django-modeltranslation

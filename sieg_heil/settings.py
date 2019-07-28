@@ -42,10 +42,12 @@ INSTALLED_APPS = [
     'django_extensions',
     'django_filters',
     'rest_framework',
+    'candies',
     'fauzans',
     'daryadi',
     'graphene_django',
     'djmoney',
+    'modeltranslation',
 ]
 
 MIDDLEWARE = [
@@ -133,3 +135,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static/'
+
+gettext = lambda s: s
+LANGUAGES = (
+    ('en', gettext('English')),
+    ('de', gettext('German')),
+    ('th', gettext('Thai')),
+    ('cn', gettext('Chinese')),
+)
+
