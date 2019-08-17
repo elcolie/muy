@@ -22,7 +22,7 @@ CC_FRUIT = [
     '81330',
 ]  #
 CC_SUGAR = [
-    '170111',
+    # '170111',
     '170199',
     '170490',
     '170310',
@@ -222,7 +222,7 @@ COMMODITY_CODES = [
     '170410',
     '170490',
 ]
-TRADE_REGIMES = ['1', '2', '3', '4']  # https://comtrade.un.org/Data/cache/tradeRegimes.json
+TRADE_REGIMES = ['1', '2']  # https://comtrade.un.org/Data/cache/tradeRegimes.json
 
 REPORTER_AREAS = [
     {
