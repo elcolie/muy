@@ -8,8 +8,8 @@ def download():
     """Async call"""
 
     for rg in tqdm(TRADE_REGIMES):  # 1 -> import
-        for r in tqdm(COUNTRIES):  # 180 countries
-            for cc in CC_THREE:  # 6 products
+        for r in tqdm(COUNTRIES):  # 20 countries
+            for cc in CC_THREE:  # 3 products
                 print(f"{rg} {r} {cc}")
                 for year in tqdm(range(2014, 2018 + 1)):  # 5 years
                     for month in tqdm(range(1, 12 + 1)):  # 12 months
