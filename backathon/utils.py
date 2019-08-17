@@ -3,20 +3,20 @@ from timeit import default_timer as timer
 
 import requests
 
-from backathon.const import TRADE_REGIMES, REPORTER_AREAS, COMMODITY_CODES
+from backathon.const import *
 
 
 def download():
     """Async call"""
 
-    for rg in TRADE_REGIMES:
-        for r in REPORTER_AREAS:
+    for rg in TRADE_REGIMES:  # 4 types
+        for r in REPORTER_AREAS:  # 180 countries
             time.sleep(5)
-            for cc in COMMODITY_CODES:
+            for cc in CC_SUGAR:  # commodity codes
                 start = timer()
-                print(f"{rg} {r} {cc}")
-                for year in range(2010, 2019 + 1):
-                    for month in range(1, 12 + 1):
+                print(f"{rg} {r['id']} {cc}")
+                for year in range(2010, 2019 + 1):  # 10 years
+                    for month in range(1, 12 + 1):  # 12 months
                         url = f"http://comtrade.un.org/api/get"
                         payload = {
                             'max': 50000,
@@ -24,6 +24,11 @@ def download():
                             'freq': 'M',
                             'px': 'HS',
                             'ps': f"{year}{str(month).zfill(2)}",
+                            'r': str(r),
+                            'p': 0,
+                            'rg': rg,
+                            'cc': cc,
+                            'fmt': 'csv',
                         }
                         res = requests.get(url, params=payload)
                         assert 200 == res.status_code
