@@ -1,4 +1,9 @@
 URL = 'http://comtrade.un.org/api/get'
+CC_THREE = [
+    '80119',
+    '80390',
+    '80211',
+]
 CC_FRUIT = [
     '81090',
     '81340',
@@ -22,7 +27,7 @@ CC_FRUIT = [
     '81330',
 ]  #
 CC_SUGAR = [
-    # '170111',
+    '170111',
     '170199',
     '170490',
     '170310',
@@ -222,8 +227,30 @@ COMMODITY_CODES = [
     '170410',
     '170490',
 ]
-TRADE_REGIMES = ['1', '2']  # https://comtrade.un.org/Data/cache/tradeRegimes.json
+TRADE_REGIMES = ['1']  # https://comtrade.un.org/Data/cache/tradeRegimes.json
 
+COUNTRIES = [
+    '842',
+    '276',
+    '528',
+    '826',
+    '251',
+    '643',
+    '124',
+    '156',
+    '344',
+    '56',
+    '699',
+    '381',
+    '724',
+    '392',
+    '616',
+    '784',
+    '410',
+    '682',
+    '757',
+    '360',
+]
 REPORTER_AREAS = [
     {
         "id": "all",

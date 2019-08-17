@@ -1,9 +1,5 @@
-import time
-from tqdm import tqdm
-
-from timeit import default_timer as timer
-
 import requests
+from tqdm import tqdm
 
 from const import *
 
@@ -11,12 +7,11 @@ from const import *
 def download():
     """Async call"""
 
-    for rg in tqdm(TRADE_REGIMES):  # 4 types
-        for r in tqdm(REPORTER_AREAS):  # 180 countries
-            for cc in CC_SUGAR:  # 15
-                start = timer()
-                print(f"{rg} {r['id']} {cc}")
-                for year in tqdm(range(2010, 2019 + 1)):  # 10 years
+    for rg in tqdm(TRADE_REGIMES):  # 1 -> import
+        for r in tqdm(COUNTRIES):  # 180 countries
+            for cc in CC_THREE:  # 6 products
+                print(f"{rg} {r} {cc}")
+                for year in tqdm(range(2014, 2018 + 1)):  # 5 years
                     for month in tqdm(range(1, 12 + 1)):  # 12 months
                         url = f"http://comtrade.un.org/api/get"
                         payload = {
@@ -25,9 +20,9 @@ def download():
                             'freq': 'M',
                             'px': 'HS',
                             'ps': f"{year}{str(month).zfill(2)}",
-                            'r': str(r['id']),
+                            'r': r,
                             'p': 0,
-                            'rg': rg,
+                            'rg': '1',
                             'cc': cc,
                             'fmt': 'csv',
                         }
@@ -35,10 +30,9 @@ def download():
                         try:
                             assert 200 == res.status_code
                         except:
-                            print(f"{rg}_{r['id']}_{cc}_{year}_{month}.csv")
-                        f = open(f"{rg}_{r['id']}_{cc}_{year}_{month}.csv", 'wb')
+                            f = open(f"[error]_{rg}_{r}_{cc}_{year}_{month}.csv", 'wb')
+                            f.write(res.text.encode('utf8'))
+                            f.close()
+                        f = open(f"{rg}_{r}_{cc}_{year}_{month}.csv", 'wb')
                         f.write(res.text.encode('utf8'))
                         f.close()
-                        end = timer()
-                        print(end - start)
-
