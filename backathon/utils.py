@@ -32,7 +32,7 @@ def download():
                         }
                         res = requests.get(url, params=payload)
                         assert 200 == res.status_code
-                        f = open(f"{rg}_{r}_{cc}.csv", 'w')
+                        f = open(f"{rg}_{r}_{cc}_{year}_{month}.csv", 'w')
                         f.write(res.text.encode('utf8'))
                         f.close()
                         end = timer()
