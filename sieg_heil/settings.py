@@ -48,6 +48,9 @@ INSTALLED_APPS = [
     'graphene_django',
     'djmoney',
     'modeltranslation',
+    'import_export',
+    'ingredients',
+    'questions',
 ]
 
 MIDDLEWARE = [
