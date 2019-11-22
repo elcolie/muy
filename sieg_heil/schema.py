@@ -32,4 +32,4 @@ class Query(graphene.ObjectType):
     all_ingredients = DjangoFilterConnectionField(IngredientNode)
 
 
-schema = graphene.Schema(query=Query)
+# schema = graphene.Schema(query=Query)
