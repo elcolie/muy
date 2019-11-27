@@ -1,13 +1,16 @@
 import graphene
 from django.forms import ModelForm
 from graphene import Field
+from graphene import relay
 from graphene_django import DjangoObjectType
+from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django.forms.mutation import DjangoModelFormMutation
 from graphene_django.rest_framework.mutation import SerializerMutation
 from rest_framework import serializers
 from rest_framework.serializers import ModelSerializer
 
 from questions.models import Question, PetModel, Category
+from sieg_heil.schema import CategoryNode, IngredientNode, IngredientFilter
 
 
 class QuestionType(DjangoObjectType):
@@ -90,6 +93,7 @@ class PetType(DjangoObjectType):
     class Meta:
         model = PetModel
         fields = (
+            'id',
             'kind',
         )
 
@@ -120,13 +124,18 @@ class Mutation(graphene.ObjectType):
 
 
 class QPQuery(graphene.ObjectType):
+    category = relay.Node.Field(CategoryNode)
+    all_categories = DjangoFilterConnectionField(CategoryNode)
+    ingredient = relay.Node.Field(IngredientNode)
+    all_ingredients = DjangoFilterConnectionField(IngredientNode, filterset_class=IngredientFilter)
+
     questions = graphene.List(QuestionType)
     question = graphene.Field(QuestionType,
                               question_id=graphene.String(),
                               bar=graphene.Int())
 
-    # pets = graphene.List(PetType)
-    # pet = graphene.Field(PetType, pet_id=graphene.Int())
+    pets = graphene.List(PetType)
+    pet = graphene.Field(PetType, pet_id=graphene.Int())
 
     def resolve_questions(self, info, **kwargs):
         return Question.objects.all()
@@ -134,11 +143,11 @@ class QPQuery(graphene.ObjectType):
     def resolve_question(self, info, question_id):
         return Question.objects.get(pk=question_id)
 
-    # def resolve_pets(self, info, **kwargs):
-    #     return PetModel.objects.all()
-    #
-    # def resolve_pet(self, info, pet_id):
-    #     return PetModel.objects.get(pk=pet_id)
+    def resolve_pets(self, info, **kwargs):
+        return PetModel.objects.all()
+
+    def resolve_pet(self, info, pet_id):
+        return PetModel.objects.get(pk=pet_id)
 
 
 schema = graphene.Schema(query=QPQuery, mutation=Mutation)

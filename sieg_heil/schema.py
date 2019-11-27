@@ -1,7 +1,6 @@
-import graphene
+from django_filters import FilterSet, OrderingFilter
 from graphene import relay
 from graphene_django import DjangoObjectType
-from graphene_django.filter import DjangoFilterConnectionField
 
 from ingredients.models import Category, Ingredient
 
@@ -11,6 +10,24 @@ class CategoryNode(DjangoObjectType):
         model = Category
         filter_fields = ['name', 'ingredients']
         interfaces = (relay.Node,)
+
+
+class IngredientFilter(FilterSet):
+    order_by = OrderingFilter(
+        fields=(
+            ('name', 'name'),
+            ('notes', 'notes'),
+            ('category__name', 'category__name'),
+        )
+    )
+
+    class Meta:
+        model = Ingredient
+        fields = (
+            'name',
+            'notes',
+            'category__name',
+        )
 
 
 class IngredientNode(DjangoObjectType):
@@ -23,13 +40,3 @@ class IngredientNode(DjangoObjectType):
             'category__name': ['exact'],
         }
         interfaces = (relay.Node,)
-
-
-class Query(graphene.ObjectType):
-    category = relay.Node.Field(CategoryNode)
-    all_categories = DjangoFilterConnectionField(CategoryNode)
-    ingredient = relay.Node.Field(IngredientNode)
-    all_ingredients = DjangoFilterConnectionField(IngredientNode)
-
-
-# schema = graphene.Schema(query=Query)
