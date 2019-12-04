@@ -140,7 +140,7 @@ class QPQuery(graphene.ObjectType):
     def resolve_questions(self, info, **kwargs):
         return Question.objects.all()
 
-    def resolve_question(self, info, question_id):
+    def resolve_question(self, info, question_id, bar):
         return Question.objects.get(pk=question_id)
 
     def resolve_pets(self, info, **kwargs):
