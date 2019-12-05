@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_extensions',
     'django_filters',
+    'customized_users',
     'rest_framework',
     'candies',
     'fauzans',
@@ -147,3 +148,16 @@ LANGUAGES = (
     ('cn', gettext('Chinese')),
 )
 
+# COGNITO_AWS_REGION = "ap-southeast-1"
+# COGNITO_USER_POOL = "ap-southeast-1_F1ByNRuQo"
+# COGNITO_AUDIENCE = "4suq8b7hr81462907l3bpqabeg"
+# COGNITO_PUBLIC_KEYS_CACHING_ENABLED = False
+# COGNITO_PUBLIC_KEYS_CACHING_TIMEOUT = 60*60*24
+
+COGNITO_AWS_REGION = "us-west-2"
+COGNITO_USER_POOL = "us-west-2_flCJaoDig"
+COGNITO_AUDIENCE = "159ufjrihgehb67sn373aotli7"
+# COGNITO_PUBLIC_KEYS_CACHING_ENABLED = False
+# COGNITO_PUBLIC_KEYS_CACHING_TIMEOUT = 60*60*24
+
+AUTH_USER_MODEL = 'customized_users.User'
