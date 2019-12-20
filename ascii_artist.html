@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://104.248.99.216/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>App</title>
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="aofUCd/E2EzOlNNTDIRCNfrqfLTrP7c8tmNOfbygkLJPUknjxjq5k94Je4I7WMQyPuY67QCaZtlQFDHVsPRVKA==">
+    
+
+    <link rel="stylesheet" media="all" href="./ascii_artist_files/application.debug-3e3098e555f0b101fe9eeee266ee019089691d3d29b4039951ca914b529024e0.css" data-turbolinks-track="reload">
+    <script>
+      window.setTimeout(function() { window.location.reload() }, 10000)
+    </script>
+  </head>
+
+  <body>
+    <h1>Question</h1>
+<h1>Artist</h1>
+
+<p>The objective of this question is to write a program that outputs the
+commands for a bot to draw the given ASCII picture.</p>
+
+<p>Download the appropriate binary file provided for your architecture:</p>
+
+<ul>
+<li><a href="http://104.248.99.216/assets/artist/bin/artist-darwin-amd64">Modern Mac OS</a></li>
+<li><a href="http://104.248.99.216/assets/artist/bin/artist-windows-amd64">Modern Windows</a></li>
+<li><a href="http://104.248.99.216/assets/artist/bin/artist-linux-amd64">Modern Linux</a></li>
+<li><a href="http://104.248.99.216/assets/artist/bin/artist-linux-arm">Chrome OS / ARM</a></li>
+<li><a href="http://104.248.99.216/assets/artist/bin/artist-windows-386">Very Old Mac OS</a></li>
+<li><a href="http://104.248.99.216/assets/artist/bin/artist-darwin-386">Very Old Windows</a></li>
+<li><a href="http://104.248.99.216/assets/artist/bin/artist-linux-386">Very Old Linux</a></li>
+</ul>
+
+<p>Download this <a href="http://104.248.99.216/assets/artist/picture-b582e3057a27c1f00b3e0b7d60c3738b13183ac6197378d0ebedaf59f3d5edb4.txt">ASCII picture</a>.</p>
+
+<p>This program creates an ASCII picture by moving a printing robot.
+Here are the robot's commands:</p>
+
+<ul>
+<li><code>r</code> -- turn right 90 deg</li>
+<li><code>l</code> -- turn left 90 deg</li>
+<li><code>a</code> -- turn around</li>
+<li><code>u</code> -- pen up</li>
+<li><code>d</code> -- pen down</li>
+<li><code>m</code> -- move forward</li>
+</ul>
+
+<p>Your canvas is 40 characters wide and 20 characters tall.
+Your robot starts in the upper left of the canvas, facing up, with its pen up.
+If you put your pen down, you'll immediately print on your current square.
+If you move with the pen down, you'll print on any squares you move to.</p>
+
+<p>Run the program on your command line with one argument containing all your
+robot commands in order.</p>
+
+<p>Example 1:</p>
+
+<p><code>
+artist-linux-amd64 rdmmm
+</code></p>
+
+<p>Produces the following output (blank areas left out):</p>
+
+<p><code>
+xxxx
+   x
+</code></p>
+
+<p>Example 2:</p>
+
+<p><code>
+artist-linux-amd64 rmmadmmlmmmlmmmmmmmmlmmmlmm
+</code></p>
+
+<p>Produces the following output (blank areas left out):</p>
+
+<p><code>
+xxx   xxx
+x       x
+x       x
+xxxxxxxxx
+</code></p>
+
+<p>Produce an exact copy of picture.txt.</p>
+
+
+  
+
+</body></html>

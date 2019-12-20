@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://104.248.99.216/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>App</title>
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="OCuHiPZZ6bge6mi/PT8qK82EPXl1ERaQPCCNE7L5pHMd/hpi76eIZw53wG4K46wsCYh7IJ60x3XaV/K7vq1h6Q==">
+    
+
+    <link rel="stylesheet" media="all" href="./t9_files/application.debug-3e3098e555f0b101fe9eeee266ee019089691d3d29b4039951ca914b529024e0.css" data-turbolinks-track="reload">
+    <script>
+      window.setTimeout(function() { window.location.reload() }, 10000)
+    </script>
+  </head>
+
+  <body>
+    <h1>Question</h1>
+<h1>T9 Autocomplete</h1>
+
+<p>The file <a href="http://104.248.99.216/assets/t9-autocomplete/contacts-90d41284520e748ba339797c6b2e89ea4085ee5457bec783fede76ba5351278b.txt">contacts.txt</a>
+has names and phone numbers.</p>
+
+<p>The format is:</p>
+
+<p><code>
+&lt;name&gt;                 &lt;phone&gt;
+^-- column 1           ^-- column 24
+</code></p>
+
+<p>Your program should receive a sequence of numbers and return the possible
+contacts that it could match on a phone keypad.</p>
+
+<p>The letters for T9 autocomplete are:</p>
+
+<p><code>
+[[2, "ABC"],
+ [3, "DEF"],
+ [4, "GHI"],
+ [5, "JKL"],
+ [6, "MNO"],
+ [7, "PQRS"],
+ [8, "TUV"],
+ [9, "WXYZ"]]
+</code></p>
+
+<p>For simplicity:
+- Ignore 1's and 0's for name matching.
+- Assume that matches always start at the beginning of the name or phone number</p>
+
+<p>Output the autocomplete contacts for the following inputs:</p>
+
+<ul>
+<li>728</li>
+<li>5203</li>
+<li>273</li>
+<li>2738</li>
+</ul>
+
+
+  
+
+</body></html>
