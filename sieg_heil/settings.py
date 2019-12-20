@@ -27,7 +27,7 @@ SECRET_KEY = 'fl9c)32nfbdzufs*i=8fjtnxd1-77@&oil8o1v_s(j7%@+hp4-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -88,15 +88,15 @@ WSGI_APPLICATION = 'sieg_heil.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
 DATABASES = {
-    "default": env.db("DATABASE_URL", default="postgres://postgres:postgres@localhost:5432/muy")
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
+# DATABASES = {
+#     "default": env.db("DATABASE_URL", default="postgres://postgres:postgres@localhost:5432/muy")
+# }
 DATABASES["default"]["ATOMIC_REQUESTS"] = True
 
 

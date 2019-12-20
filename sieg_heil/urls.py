@@ -18,11 +18,13 @@ from django.urls import path, include
 from graphene_django.views import GraphQLView
 
 # from sieg_heil.schema import schema
+from daryadi.api.viewsets import SimpleAPIViewSet
 from graphq_viewsets import PrivateGraphQLView, JWTGraphQLView, AuthenticatedGraphQLView
 from questions.schema import schema
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('simple/', SimpleAPIViewSet.as_view()),
     path('api/', include('sieg_heil.api_urls', namespace='api')),
     path('graphql/', GraphQLView.as_view(graphiql=True, schema=schema)),
     path('jwt-graphql/', AuthenticatedGraphQLView.as_view(graphiql=True, schema=schema)),
